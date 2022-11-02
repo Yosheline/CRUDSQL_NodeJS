@@ -7,7 +7,7 @@ const sql = require('mssql');//Se necesita paquete mssql
 async function getCategoria() {
     try {
         let pool = await sql.connect(config);
-        let categorias = await pool.request().query("SELECT * FROM TM_CATEGORIA");
+        let categorias = await pool.request().query("SELECT * FROM UTM_CATEGORIA");
         return categorias.recordsets;
     }
     catch (error) {
@@ -21,7 +21,7 @@ async function getCategoria_x_id(cat_id) {
         let pool = await sql.connect(config);
         let product = await pool.request()
             .input('input_parameter', sql.Int, cat_id)
-            .query("SELECT * from TM_CATEGORIA where cat_id = @input_parameter");
+            .query("SELECT * from UTM_CATEGORIA where cat_id = @input_parameter");
         return product.recordsets;
 
     }
@@ -38,7 +38,7 @@ async function insertCategoria(categoria) {
             .input('cat_id', sql.Int, categoria.cat_id)
             .input('cat_nom', sql.VarChar, categoria.cat_nom)
             .input('cat_obs', sql.VarChar, categoria.cat_obs)
-            .execute('SP_I_CATEGORIA_01');
+            .execute('U_SP_I_CATEGORIA_01');
         return insertCate.recordsets;
     }
     catch (err) {
@@ -54,7 +54,7 @@ async function updateCategoria(categoria) {
             .input('cat_id', sql.Int, categoria.cat_id)
             .input('cat_nom', sql.VarChar, categoria.cat_nom)
             .input('cat_obs', sql.VarChar, categoria.cat_obs)
-            .execute('SP_U_CATEGORIA_01');
+            .execute('U_SP_U_CATEGORIA_01');
         return updateCate.recordsets;
     }
     catch (err) {

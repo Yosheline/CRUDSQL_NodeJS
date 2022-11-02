@@ -8,9 +8,12 @@ var cors = require('cors');
 var app = express();
 var router = express.Router();
 
+
 /* TODO:Documentacion con SWAGGER */
+
 //https://www.npmjs.com/package/swagger-jsdoc
 const swaggerJsdoc = require('swagger-jsdoc');
+
 //https://www.npmjs.com/package/swagger-ui-express
 const swaggerUi = require('swagger-ui-express');
 
@@ -22,7 +25,7 @@ const swaggerOptions = {
             title: 'API REST Categorias',
             description: 'API REST Categorias',
             contact: {
-                name: 'AnderCode Developer'
+                name: 'Yosheline Roman'
             },
             servers :["http://localhost:8090"]
         }

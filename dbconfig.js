@@ -1,12 +1,14 @@
+
 const config = {
-    user :'sa',
-    password :'andersonxx',
-    server:'AnderCode-PC',
-    database:'BDTEST',
-    options:{
+    user: 'sa',
+    password : 'BYZ@en2o',
+    server: 'MX-SERVER04',
+    database: 'Beyonz_pruebas',
+        options:{
         trustedconnection: false,
-        enableArithAbort : true, 
-        encrypt:false
+        enableAritAbort: true,
+        encrypt: false,
+    instanceName : '\BEYONZMEX'
     }
 }
 
